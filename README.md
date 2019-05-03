@@ -1,5 +1,6 @@
 # Taller Programacion I - C++
 
+
 ## Semana 07
 
 **Fecha**: 03-Mayo
@@ -36,7 +37,7 @@ Recuerde que el programa deberá realizar todas las validaciones necesarias.
 
 ### Solución
 
-[02-piramide-intercalda.cpp](02-piramide-intercalda.cpp)
+[02-piramide-intercalada.cpp](02-piramide-intercalada.cpp)
 
 ![02-piramide](/img/02.png)
 
@@ -48,6 +49,15 @@ Recuerde que el programa deberá realizar todas las validaciones necesarias.
 
 
 ![03-piramide](/img/03.png)
+
+## 4. Pirámide Numeros [Gráfico]
+
+
+[04-piramides-numeros.cpp](04-piramides-numeros.cpp)
+
+
+![04-piramide](/img/04.png)
+
 
 
 
