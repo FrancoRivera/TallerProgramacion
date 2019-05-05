@@ -1,0 +1,30 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace System;
+using namespace std;
+
+void main()
+{
+	int *i = new int;
+	*i = 0;
+	int *N = new int;
+	int *suma = new int;
+	*suma = 0;
+	cout << "Ingrese N: "; cin >> *N;
+
+	while (*i < *N)
+	{
+		*suma = *suma + pow(*i, 2);
+		cout << pow(*i, 2);
+		if (*i != *N - 1) cout << " + ";
+		
+		(*i)++;
+	}
+
+	cout << endl << endl;
+	cout << "La suma es: " << *suma;
+
+	cin.get();
+	cin.get();
+}

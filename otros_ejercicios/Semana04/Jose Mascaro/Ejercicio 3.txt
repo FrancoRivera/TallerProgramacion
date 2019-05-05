@@ -1,0 +1,59 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace System;
+using namespace std;
+
+void main()
+{
+	char *tipo = new char;
+	char *adicional = new char;
+	int *dia = new int;
+	double *precio = new double;
+	*precio = 0;
+
+	cout << "Ingrese el tipo de menu: "; cin >> *tipo;
+	*tipo = toupper(*tipo);
+
+	if (*tipo != 'E' && *tipo != 'J' && *tipo != 'S') cout << "Error en el tipo de menu";
+	else
+	{
+		cout << "Ingrese el adicional: "; cin >> *adicional;
+		*adicional = toupper(*adicional);
+		if (*adicional != 'N' && *adicional != 'H' && *adicional != 'T' && *adicional != 'A') cout << "Erroe en el adicional";
+		else
+		{
+			cout << "Ingrese el dia de la semana: "; cin >> *dia;
+			if (*dia < 0 || *dia > 7) cout << "Error en el dia";
+			else
+			{
+				switch (*tipo)
+				{
+				case 'E': *precio = *precio + 12.5; break;
+				case 'J': *precio = *precio + 15.8; break;
+				case 'S': *precio = *precio + 18.9; break;
+				}
+
+				switch (*adicional)
+				{
+				case 'N': *precio = *precio + 0; break;
+				case 'H': *precio = *precio + 5; break;
+				case 'T': *precio = *precio + 7; break;
+				case 'A': *precio = *precio + 12; break;
+				}
+
+				if (*dia >= 1 && *dia <= 3)
+				{
+					*precio = *precio * 0.89;
+				}
+			}
+		}
+	}
+
+	cout << endl << endl;
+	cout.precision(4);
+	cout << "El monto a pagar es: " << *precio;
+
+	cin.get();
+	cin.get();
+}

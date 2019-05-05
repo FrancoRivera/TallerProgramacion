@@ -1,0 +1,55 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace System;
+using namespace std;
+
+void main() 
+{
+	int *cont = new int;
+	*cont = 0;
+
+	int *N = new int;
+
+	double *e = new double;
+	*e = 0;
+
+	int *numerador = new int;
+	*numerador = 1;
+
+	int *denominador = new int;
+	*denominador = 1;
+
+	int *factorial = new int;
+	*factorial = 1;
+
+	int *ifor = new int;
+
+	do
+	{
+		cout << "Ingrese el numero de terminos: "; cin >> *N;
+	} while (*N < 1 || *N > 120);
+
+	while (*cont < *N)
+	{
+		for (*ifor = 1; *ifor <= *denominador; (*ifor)++)
+		{
+			*factorial = *factorial * *ifor;
+		}
+
+		*e += pow(*numerador,2) / (2 * *factorial);
+
+
+		*factorial = 1;
+		(*numerador)++;
+		(*denominador)++;
+		
+		(*cont)++;
+	}
+
+	cout << "El valor del numero e es: " << *e;
+	
+
+	_getch();
+}
+

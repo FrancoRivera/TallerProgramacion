@@ -1,0 +1,41 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//Declaracion de Variables
+	char *grado = new char;
+	char *nivel = new char;
+	char *esp = new char;
+
+	int *puntaje1 = new int;
+	int *puntaje2 = new int;
+	int *puntaje3 = new int;
+
+	int *puntaje_total = new int;
+	char *ingresa = new char;
+	
+	//Ingreso de datos / Input
+	cout << "Ingrese grado (B,I,M) : "; cin >> *grado;
+	cout << "Ingrese nivel (R,Q,T): "; cin >> *nivel;
+	cout << "Ingrese especialidad (A:Notiene B:SAP C:JAVA D:AMBOS): "; cin >> *esp;
+
+	//Operaciones
+	*grado = toupper(*grado);
+	*nivel = toupper(*nivel);
+	*esp = toupper(*esp);
+
+	*puntaje1 = ((*grado == 'B') * 3) + ((*grado == 'I') * 7) + ((*grado == 'M') * 20);
+	*puntaje2 = ((*nivel == 'R') * 2) + ((*nivel == 'Q') * 10) + ((*nivel == 'T') * 7);
+	*puntaje3 = ((*esp == 'A') * 1) + ((*esp == 'B') * 10) + ((*esp == 'C') * 15) + ((*esp == 'D') * 25);
+	*puntaje_total = *puntaje1 + *puntaje2 + *puntaje3;
+	*ingresa = ((*puntaje_total >= 24) * 83) + ((*puntaje_total < 24) * 78);
+	//Salida de datos/ Output
+	cout << endl;
+	cout << "Los puntajes son: " << *puntaje1 << " + " << *puntaje2 << " + " << *puntaje3 << " = " << *puntaje1 + *puntaje2 + *puntaje3;
+	cout << endl;
+	cout << "Ingresa Si:S No:N -> " << *ingresa;
+	_getch();
+}

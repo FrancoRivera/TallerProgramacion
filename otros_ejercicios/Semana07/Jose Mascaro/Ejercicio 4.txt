@@ -1,0 +1,50 @@
+#include "iostream"
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	int *N = new int;
+	double *b = new double;
+	int *cont = new int;
+	*cont = 1;
+	int *numerador = new int;
+	*numerador = 2;
+	int *denominador = new int;
+	*denominador = 4;
+
+	double *suma = new double;
+	*suma = 0;
+
+	do
+	{
+		cout << "Ingrese el valor de N: "; cin >> *N;
+	} while (*N < 0);
+
+	do
+	{
+		cout << "Ingrese el valor de b: "; cin >> *b;
+	} while (*b > 5 || *b < 1);
+
+	while (*cont <= *N)
+	{
+		if (*cont % 2 != 0)
+		{
+			*suma += *numerador * *b / (*denominador);
+		}
+		else
+		{
+			*suma += (*numerador * *b / (*denominador)) * -1;
+		}
+
+
+		*numerador += 2;
+		*denominador += 3;
+		(*cont)++;
+	}
+
+	cout << "La suma es: " << *suma;
+
+	_getch();
+}

@@ -1,0 +1,42 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	
+	int *N = new int;
+	double *a = new double;
+	int *cont = new int;
+	*cont = 0;
+	double *suma = new double;
+	*suma = 0;
+	int *var = new int;
+	*var = 2;
+
+	int *sumador = new int;
+	*sumador = 4;
+
+	do
+	{
+		cout << "Ingrese el numero de terminos: "; cin >> *N;
+	} while (*N < 0);
+
+	do
+	{
+		cout << "Ingrese el valor de 'a': "; cin >> *a;
+	} while (*a < 1 || *a > 4);
+
+	while (*cont < *N)
+	{
+		*suma += *a / *var;
+
+		*var += *sumador;
+		*sumador += 2;
+		(*cont)++;
+	}
+
+	cout << "La suma es: " << *suma;
+	_getch();
+}
+

@@ -1,0 +1,44 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//variables
+	double *salario = new double;
+	int *num_per = new int;
+
+	cout << "Ingrese salario: "; cin >> *salario;
+	if (*salario < 1) cout << "Error en los datos";
+	else
+	{
+		cout << "Ingrese numero de personas: "; cin >> *num_per;
+		if (*num_per < 1) cout << "Error en los datos";
+		else
+		{
+			if (*num_per == 1)
+			{
+				if (*salario <= 500) cout << "Tipo de linea que puede acceder: Pre Pago";
+				else cout << "Tipo de linea que puede acceder: Post Pago";
+			}
+
+			if (*num_per >= 2 && *num_per <= 4)
+			{
+				if (*salario <= 750) cout << "Tipo de linea que puede acceder: Pre Pago";
+				else cout << "Tipo de linea que puede acceder: Post Pago";
+			}
+
+			if (*num_per > 4)
+			{
+				if(*salario <= 1000) cout << "Tipo de linea que puede acceder: Pre Pago";
+				else cout << "Tipo de linea que puede acceder: Post Pago";
+			}
+				
+				
+		}
+	}
+
+
+	_getch();
+}

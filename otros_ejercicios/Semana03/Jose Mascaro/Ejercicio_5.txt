@@ -1,0 +1,79 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//Declaracion de Variables
+	char *apellido = new char;
+	int *edad = new int;
+	int *peso = new int;
+
+	int *ap1, *ap2, *ap3, *ap4, *ap5;
+	ap1 = new int;
+	ap2 = new int;
+	ap2 = new int;
+	ap3 = new int;
+	ap4 = new int;
+	ap5 = new int;
+	int *aux = new int;
+
+	int *ed1, *ed2, *ed3;
+	ed1 = new int;
+	ed2 = new int;
+	ed3 = new int;
+	int *aux2 = new int;
+
+	int *pes1, *pes2, *pes3, *pes4;
+	pes1 = new int;
+	pes2 = new int;
+	pes3 = new int;
+	pes4 = new int;
+	int *aux3 = new int;
+	
+	//Ingreso de datos / Input
+	cout << "Ingrese primera letra del apellido: "; cin >> *apellido;
+	cout << "Ingrese edad (16 - 19): "; cin >> *edad;
+	cout << "Ingrese el peso: "; cin >> *peso;
+
+	//Operaciones
+
+	//Apellido
+	*apellido = toupper(*apellido);
+
+	*ap1 = int(*apellido) % 3;
+	*ap2 = (int(*apellido) / 3) % 3; 
+	*ap3 = ((int(*apellido) / 3) / 3) % 3; 
+	*ap4 = (((int(*apellido) / 3) / 3) / 3) % 3; 
+	*ap5 = (((int(*apellido) / 3) / 3) / 3) / 3; 
+
+	*aux = *ap5 * 10000 + *ap4 * 1000 + *ap3 * 100 + *ap2 * 10 + *ap1;
+
+	//Edad
+	*ed1 = *edad % 3;
+	*ed2 = (*edad / 3) % 3;
+	*ed3 = (*edad / 3) / 3;
+
+	*aux2 = *ed3 * 100 + *ed2 * 10 + *ed1;
+
+	//Peso
+	*pes1 = *peso % 3;
+	*pes2 = (*peso / 3) % 3;
+	*pes3 = ((*peso / 3) / 3) % 3;
+	*pes4 = (((*peso) / 3) / 3) / 3;
+
+	*aux3 = *pes4 * 1000 + *pes3 * 100 + *pes2 * 10 + *pes1;
+
+	//Salida de datos/ Output
+
+	cout << endl << endl;
+	cout << "El apellido encriptado es: " << *aux << endl;
+	cout << "La edad encriptada es: " << *aux2 << endl;
+	cout << "El peso encriptado es: " << *aux3 << endl << endl;
+
+	cout << "El mensaje encriptado es: " << *aux << " " << *aux2 << " " << *aux3;
+
+
+	_getch();
+}

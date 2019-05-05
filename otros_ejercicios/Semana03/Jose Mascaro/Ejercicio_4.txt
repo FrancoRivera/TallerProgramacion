@@ -1,0 +1,31 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//Declaracion de Variables
+	double *salario = new double;
+	int *num_per = new int;
+	int *op1 = new int;
+	int *op2 = new int;
+	int *op3 = new int;
+	char *tip_linea = new char;
+
+	//Ingreso de datos / Input
+	cout << "Cual es su salario mensual?: "; cin >> *salario;
+	cout << endl;
+	cout << "Numero de personas a cargo: "; cin >> *num_per;
+	cout << endl;
+	//Operaciones
+	*op1 = (*num_per == 1 && *salario <= 500) * 80 + (*num_per == 1 && *salario > 500) * 79;
+	*op2 = ((*num_per >= 2 && *num_per <= 4) * (*salario <= 750) * 80) + ((*num_per >= 2 && *num_per <= 4) * (*salario > 750) * 79);
+	*op3 = (*num_per > 4 && *salario <= 1000) * 80 + (*num_per > 4 && *salario > 1000) * 79;
+	*tip_linea = *op1 + *op2 + *op3;
+
+	//Salida de datos/ Output
+	cout << "El tipo de linea al que podemos acceder es: " << *tip_linea << endl;
+
+	_getch();
+}

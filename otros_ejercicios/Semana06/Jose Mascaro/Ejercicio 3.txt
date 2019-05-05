@@ -1,0 +1,72 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	
+	int *N = new int;
+	int *cont = new int;
+	*cont = 1;
+
+	char *sexo = new char;
+	int *edad = new int;
+	char *estado = new char;
+
+	int *cont1 = new int;
+	*cont1 = 0;
+	int *cont2 = new int;
+	*cont2 = 0;
+	int *contM = new int;
+	*contM = 0;
+	int *contF = new int;
+	*contF = 0;
+
+	do
+	{
+		cout << "Ingrese N: "; cin >> *N;
+	} while (*N < 0 || *N > 100);
+
+	while (*cont <= *N)
+	{
+		cout << "Persona numero " << *cont << endl;
+		do
+		{
+			cout << "Ingrese el sexo (F - M): "; cin >> *sexo;
+			*sexo = toupper(*sexo);
+		} while (*sexo != 'F' && *sexo != 'M');
+
+		do
+		{
+			cout << "Ingrese la edad: "; cin >> *edad;
+		} while (*edad < 14);
+
+		do
+		{
+			cout << "Ingrese el estado civil (A - B - C - D): "; cin >> *estado;
+			*estado = toupper(*estado);
+		} while (*estado != 'A' && *estado != 'B' && *estado != 'C' && *estado != 'D');
+
+		if (*sexo == 'F') (*contF)++;
+		if (*sexo == 'M') (*contM)++;
+
+		if (*sexo == 'F' && *edad > 15 && *edad < 22 && *estado == 'B') (*cont1)++;
+		if (*sexo == 'M' && *edad > 35 && (*estado == 'A' || *estado == 'D')) (*cont2)++;
+
+		cout << "-------------------------" << endl;
+
+		(*cont)++;
+	}
+
+	cout << endl;
+	cout << "REPORTE";
+	cout << endl;
+
+	cout << "El numero de mujeres casadas entre 16 y 21 anios son: " << *cont1 << endl;
+	cout << "El porcentaje de hombres es: " << (double(*contM) / *N) * 100 << endl;
+	cout << "El porcentaje de mujeres es: " << (double(*contF) / *N) * 100 << endl;
+	cout << "El numero de hombres mayores a 35 anios casados o divorciados es: " << *cont2;
+
+	_getch();
+}
+

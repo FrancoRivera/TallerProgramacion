@@ -1,0 +1,51 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	int* numerador = new int;
+	int *denominador = new int;
+	int* resto = new int;
+
+	int *cociente = new int;
+
+	do
+	{
+		cout << "Ingrese el numerador: "; cin >> *numerador;
+
+	} while (*numerador < 0);
+
+	do
+	{
+		cout << "Ingrese el denominador: "; cin >> *denominador;
+
+	} while (*denominador == 0);
+
+	*cociente = 0;
+	*resto = *numerador;
+
+		while (*resto >= *denominador && *resto != 0)
+		{
+			if (*denominador > 0)
+			{
+				*resto = *resto - *denominador;
+				(*cociente)++;
+			}
+			else
+			{
+				*resto = *resto - (*denominador*-1);
+				(*cociente)--;
+			}
+			
+		}
+
+	
+
+	
+	cout << "El resto es : " << *resto << endl;
+	cout << "El cociente es : " << *cociente << endl;
+	
+	_getch();
+}
+

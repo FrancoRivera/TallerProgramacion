@@ -1,0 +1,68 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//Variables
+	int *ubicacion = new int;
+	int *hora = new int;
+	int *grad_emergencia = new int;
+	*grad_emergencia = 0;	
+
+	//Input
+
+	/*do
+	{
+		cout << "Ingrese la ubicacion (0:Terrestre , 1:Maritima): "; cin >> *ubicacion;
+	} while (*ubicacion != 0 && *ubicacion != 1);*/
+
+	/*do
+	{
+		cout << "Ingrese la hora: "; cin >> *hora;
+	} while (*hora > 2400 || *hora % 100 > 59 || *hora < 0);*/
+
+
+	cout << "Ingrese la ubicacion (0:Terrestre , 1:Maritima): "; cin >> *ubicacion;
+	if (*ubicacion != 0 && *ubicacion != 1) cout << "Error en los datos";
+	else
+	{
+		cout << "Ingrese la hora: "; cin >> *hora;
+		if (*hora > 2400 || *hora % 100 > 59 || *hora < 0) cout << "Error en los datos";
+		else
+		{
+			//Operaciones
+
+			//Puntos X Hora
+			if (*hora <= 600) *grad_emergencia = *grad_emergencia + 500;
+			if (*hora > 600 && *hora <= 1200) *grad_emergencia = *grad_emergencia + 200;
+			if (*hora > 1200 && *hora <= 1800) *grad_emergencia = *grad_emergencia + 300;
+			if (*hora > 1800) *grad_emergencia = *grad_emergencia + 400;
+
+			//Puntos X Zona
+
+			switch (*ubicacion)
+			{
+			case 0: *grad_emergencia = *grad_emergencia + 1000; break;
+			case 1:*grad_emergencia = *grad_emergencia + 2000; break;
+			}
+
+			//Output
+			cout << endl;
+			cout << "El puntaje es: " << *grad_emergencia << endl;
+			if (*grad_emergencia >= 1000 && *grad_emergencia < 1500) cout << "Accion: Posible Rescate";
+			if (*grad_emergencia >= 1500 && *grad_emergencia < 1800) cout << "Accion: Rescate en alerta amarilla";
+			if (*grad_emergencia >= 1800 && *grad_emergencia < 2200) cout << "Accion: Rescate en alerta roja";
+			if (*grad_emergencia >= 2200) cout << "Accion: Rescate Inminente";
+		}
+	}
+
+	
+
+	
+
+
+
+	_getch();
+}

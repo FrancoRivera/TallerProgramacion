@@ -1,0 +1,144 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace System;
+using namespace std;
+
+void main() 
+{
+	char *transporte = new char;
+	int *duracion = new int;
+	int *tiempo = new int;
+	char *ruta = new char;
+
+	int *cont = new int; 
+	int *cont_auto = new int;
+	int *cont_taxi = new int; 
+	int *cont_publico = new int;
+	*cont = *cont_auto = *cont_publico = *cont_taxi = 0;
+
+	int *cont1 = new int;
+	int *cont2 = new int; 
+	int *cont3 = new int;
+	int *cont4 = new int;
+	*cont1 = *cont2 = *cont3 = *cont4 = 0;
+
+	int *contArequipa = new int;
+	int *contBrasil = new int;
+	int *contPaseo = new int;
+	int *contOtraRuta = new int;
+	*contArequipa = *contBrasil = *contPaseo = *contOtraRuta = 0;
+
+	int *sumaArequipa = new int;
+	int *sumaBrasil = new int;
+	int *sumaPaseo = new int;
+	int *sumaOtraRuta = new int;
+	*sumaArequipa = *sumaBrasil = *sumaPaseo = *sumaOtraRuta = 0;
+
+	int *mayor = new int;
+	*mayor = 0;
+
+	while (1)
+	{
+		cout << "USUARIO " << *cont + 1 << endl;
+		do
+		{
+			cout << "Ingrese el Medio de Transporte (A,T,P): "; cin >> *transporte;
+			*transporte = toupper(*transporte);
+		} while (*transporte != 'A' && *transporte != 'T' && *transporte != 'P' && *transporte != 'X' );
+
+		if (*transporte == 'X') break;
+
+		(*cont)++;
+
+		if (*transporte == 'A') (*cont_auto)++;
+		if (*transporte == 'T') (*cont_taxi)++;
+		if (*transporte == 'P') (*cont_publico)++;
+
+
+		do
+		{
+			cout << "Ingrese la duracion del viaje: "; cin >> *duracion;
+		} while (*duracion < 1);
+
+		do
+		{
+			cout << "Ingrese el momento del dia (1,2,3,4): "; cin >> *tiempo;
+		} while (*tiempo > 4 || *tiempo < 1);
+
+		if (*tiempo == 1) (*cont1)++;
+		if (*tiempo == 2) (*cont2)++;
+		if (*tiempo == 3) (*cont3)++;
+		if (*tiempo == 4) (*cont4)++;
+
+
+		do
+		{
+			cout << "Ruta elegida (A,B,C,O): "; cin >> *ruta;
+			*ruta = toupper(*ruta);
+		} while (*ruta != 'A' && *ruta != 'B' && *ruta != 'C' && *ruta != 'O');
+
+		if (*ruta == 'A')
+		{
+			(*contArequipa)++;
+			*sumaArequipa += *duracion;
+		}
+		if (*ruta == 'B')
+		{
+			(*contBrasil)++;
+			*sumaBrasil += *duracion;
+		}
+		if (*ruta == 'C')
+		{
+			(*contPaseo)++;
+			*sumaPaseo += *duracion;
+		}
+		if (*ruta == 'O')
+		{
+			(*contOtraRuta)++;
+			*sumaOtraRuta += *duracion;
+		}
+
+		
+	}
+
+	cout << endl << endl;
+	cout << "REPORTE: " << endl;
+
+	cout << "Cantidad de usuarios que usan auto propio: " << *cont_auto << endl;
+	cout << "Cantidad de usuarios que usan taxi: " << *cont_taxi << endl;
+	cout << "Cantidad de usuarios que usan transporte publico: " << *cont_publico << endl;
+
+
+	if (*mayor < *cont1) *mayor = *cont1;
+	if (*mayor < *cont2) *mayor = *cont2;
+	if (*mayor < *cont3) *mayor = *cont3;
+	if (*mayor < *cont4) *mayor = *cont4;
+
+	cout << "Momentos con mayor cantidad de viajes: " << endl;
+	if (*mayor == *cont1) cout << " 1 " << endl;
+	if (*mayor == *cont2) cout << " 2 " << endl;
+	if (*mayor == *cont3) cout << " 3 " << endl;
+	if (*mayor == *cont4) cout << " 4 " << endl;
+
+	cout << "El tiempo promedio de viaje por ruta son: " << endl;
+
+	if (*contArequipa != 0)cout << "Arequipa: " << *sumaArequipa / *contArequipa << endl;
+	else cout << "Arequipa: 0" << endl;
+	
+	if (*contBrasil != 0) cout << "Brasil: " << *sumaBrasil / *contBrasil << endl;
+	else cout << "Brasil: 0" << endl;
+	
+	if (*contPaseo != 0) cout << "Paseo Republica: " << *sumaPaseo / *contPaseo << endl;
+	else cout << "Paseo Republica: 0" << endl;
+	
+	if (*contOtraRuta != 0) cout << "Otra Ruta: " << *sumaOtraRuta / *contOtraRuta;
+	else cout << "Otra ruta: 0" << endl;
+
+
+
+
+
+	_getch();
+}
+

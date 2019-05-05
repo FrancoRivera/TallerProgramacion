@@ -1,0 +1,41 @@
+Proceso Ejercicio_1
+	Escribir "Ingrese el codigo del producto";
+	Leer codigo;
+	Escribir "Ingrese la cantidad de productos";
+	Leer productos;
+	
+	Si codigo = 1 Entonces
+		precio<-15.75
+	FinSi
+	
+	Si codigo = 2 Entonces
+		precio<-21
+	FinSi
+	
+	Si codigo = 3 Entonces
+		precio<-8.5
+	FinSi
+	
+	Si codigo = 4 Entonces
+		precio<-25
+	FinSi
+	
+	Si codigo = 5 Entonces
+		precio<-13.25
+	FinSi
+	
+	descuento<-1
+	
+	Si productos >= 100 Entonces
+		descuento<-descuento - 0.11
+	Sino
+		Escribir "Usted no aplica para el descuento";
+	FinSi	
+
+	total<-precio * productos * descuento;
+	
+	Escribir "El monto a pagar será: " total;
+	
+	
+	
+FinProceso

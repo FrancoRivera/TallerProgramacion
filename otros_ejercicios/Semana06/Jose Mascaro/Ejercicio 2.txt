@@ -1,0 +1,51 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	
+	int *num = new int;
+	int *cont = new int;
+	*cont = 0;
+
+	int *aux = new int;
+	int *resto = new int;
+	int *num_inv = new int;
+	*num_inv = 0;
+
+	int *cont_capicuas = new int;
+	*cont_capicuas = 0;
+
+	while (1)
+	{
+		cout << "Ingrese un numero: "; cin >> *num;
+
+		if (*num == 0)break;
+
+		else
+		{
+			(*cont)++;
+
+		}
+		
+		*aux = *num;
+
+		while (*aux > 0)
+		{
+			*resto = *aux % 10;
+			*aux = *aux / 10;
+			*num_inv = *num_inv * 10 + *resto;
+		}
+
+		if (*num == *num_inv) (*cont_capicuas)++;
+
+		*num_inv = 0;
+	}
+
+	cout << "Numero leidos: " << *cont << endl;
+	cout << "Numero de capicuas: " << *cont_capicuas;
+
+	_getch();
+}
+

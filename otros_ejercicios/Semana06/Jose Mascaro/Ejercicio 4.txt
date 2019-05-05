@@ -1,0 +1,113 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	
+	char *tipo = new char;
+	int *hora = new int;
+	char *servicio = new char;
+	int *cont = new int;
+	*cont = 1;
+
+	int *contProf = new int;
+	int *contAlum = new int;
+	int *contAdmin = new int;
+	*contProf = 0;
+	*contAlum = 0;
+	*contAdmin = 0;
+
+	int *contMadru = new int;
+	int *contManan = new int;
+	int *contTarde = new int;
+	int *contNoche = new int;
+	*contMadru = 0;
+	*contManan = 0;
+	*contTarde = 0;
+	*contNoche = 0;
+
+	int *contPersonal = new int;
+	int *contAcade = new int;
+	int *contAdministrativo = new int;
+	*contPersonal = 0;
+	*contAcade = 0;
+	*contAdministrativo = 0;
+
+	int *mayor = new int;
+	*mayor = 0;
+
+
+	while (1)
+	{
+		cout << "Ingrese usuario numero " << *cont << endl;
+		do
+		{
+			cout << "Ingrese tipo de usuario: "; cin >> *tipo;
+			*tipo = toupper(*tipo);
+		} while (*tipo != 'P' && *tipo != 'A' && *tipo != 'D' && *tipo != 'X');
+
+		if (*tipo == 'X') break;
+		if (*tipo == 'P') (*contProf)++;
+		if (*tipo == 'A') (*contAlum)++;
+		if (*tipo == 'D') (*contAdmin)++;
+
+		do
+		{
+			cout << "Ingrese la hora de acceso: "; cin >> *hora;
+		} while (*hora > 23 && *hora < 0);
+
+		if (*hora <= 5) (*contMadru)++;
+		if (*hora > 5 && *hora <= 12) (*contManan)++;
+		if (*hora > 12 && *hora <= 17) (*contTarde)++;
+		if (*hora > 17) (*contNoche)++;
+
+
+
+		do
+		{
+			cout << "Ingrese tipo de servicio: "; cin >> *servicio;
+			*servicio = toupper(*servicio);
+		} while (*servicio != 'P' && *servicio != 'A' && *servicio != 'D');
+
+		if (*tipo == 'P') (*contPersonal)++;
+		if (*tipo == 'A') (*contAcade)++;
+		if (*tipo == 'D') (*contAdministrativo)++;
+
+		cout << endl << endl;
+
+		(*cont)++;
+
+
+	}
+	cout << "----------------------------" << endl;
+	cout << "REPORTE" << endl;
+
+	if (*mayor < *contMadru) *mayor = *contMadru;
+	if (*mayor < *contManan) *mayor = *contManan;
+	if (*mayor < *contTarde) *mayor = *contTarde;
+	if (*mayor < *contNoche) *mayor = *contNoche;
+
+	cout << "La hora con mas accesos es: " << endl;
+	if (*mayor == *contMadru) cout << "MADRUGADA" << endl;
+	if (*mayor == *contManan) cout << "MANANIA" << endl;
+	if (*mayor == *contTarde) cout << "TARDE" << endl;
+	if (*mayor == *contNoche) cout << "NOCHE" << endl << endl;
+
+	*mayor = 0;
+
+	if (*mayor < *contPersonal) *mayor = *contPersonal;
+	if (*mayor < *contAcade) *mayor = *contAcade;
+	if (*mayor < *contAdministrativo) *mayor = *contAdministrativo;
+	
+	cout << "Predominan los servicios: " << endl;
+	if (*mayor == *contPersonal) cout << "PERSONAL" << endl;
+	if (*mayor == *contAcade) cout << "ACADEMICO" << endl;
+	if (*mayor == *contAdministrativo) cout << "ADMINISTRATIVO";
+
+
+
+
+	_getch();
+}
+

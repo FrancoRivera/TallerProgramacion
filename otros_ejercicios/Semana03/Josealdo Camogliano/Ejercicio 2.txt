@@ -1,0 +1,26 @@
+Proceso Ejercicio_2
+	Escribir "Ingrese el tamaño de la arista";
+	Leer arista;
+	
+	volumen<-arista*arista*arista;
+	
+	Si volumen < 70 Entonces
+		precio <- 2.5;
+	Sino
+		Si volumen >= 70 y volumen <= 150 Entonces
+			precio <- 5.0;
+		Sino
+			Si volumen > 150 Entonces
+				precio <- 10
+			FinSi
+		FinSi
+	FinSi
+	
+	area <- 5 * (arista * arista); 
+	
+	monto <- precio * area;
+	
+	Escribir "Volumen = " volumen;
+	
+	Escribir "Su monto a pagar es " monto " soles";
+FinProceso

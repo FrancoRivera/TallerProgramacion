@@ -1,0 +1,64 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace System;
+using namespace std;
+
+void main() 
+{
+
+	int *N = new int;
+	int *a = new int;
+	int *X = new int;
+
+	int *numerador = new int;
+	*numerador = 2;
+	int *denominador = new int;
+	*denominador = 1;
+	int *exponente = new int;
+	*exponente = 1;
+
+	int *cont = new int;
+	*cont = 1;
+
+	double *suma = new double;
+	*suma = 0;
+
+	do
+	{
+		cout << "Ingrese el valor de N: "; cin >> *N;
+	} while (*N < 0 || *N > 19);
+
+	cout << "Ingrese el valor de X: "; cin >> *X;
+
+	do
+	{
+		cout << "Ingrese el valor de a: "; cin >> *a;
+	} while (*a == 0);
+
+
+
+	while (*cont <= *N)
+	{
+		if (*cont % 2 != 0)
+		{
+			*suma += (double(*numerador * pow(*X, *exponente)) /(*denominador * *a)) * -1;
+		}
+		else
+		{
+			*suma += (double(*numerador * pow(*X, *exponente)) / (*denominador * *a));
+		}
+
+		(*numerador)++;
+		(*exponente)++;
+		(*denominador += 2);
+
+
+		(*cont)++;
+	}
+
+	cout << "La suma es: " << *suma;
+
+	_getch();
+}
+

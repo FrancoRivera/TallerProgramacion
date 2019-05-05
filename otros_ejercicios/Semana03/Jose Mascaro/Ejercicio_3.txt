@@ -1,0 +1,26 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	//Declaracion de Variables
+	int *arista = new int;
+	int *volumen = new int;
+	double *precio = new double;
+	int *area_total = new int;
+
+	//Ingreso de datos / Input
+	cout << "Ingrese el tamaño de la arista: "; cin >> *arista;
+
+	//Operaciones
+	*volumen = *arista * *arista * *arista;
+	*area_total = *arista * *arista * 5;
+	*precio = (*volumen < 70)*(*area_total * 2.5) + (*volumen >= 70 && *volumen <= 150)* (*area_total * 5) + (*volumen > 150) * (*area_total * 10);
+	//Salida de datos/ Output
+	cout << "El volumen es: " << *volumen << endl;
+	cout << "El precio es: " << *precio;
+
+	_getch();
+}

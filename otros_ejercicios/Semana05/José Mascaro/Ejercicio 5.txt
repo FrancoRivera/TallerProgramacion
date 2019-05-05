@@ -1,0 +1,54 @@
+#include<iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main() {
+	
+	int *edad = new int;
+	int *num_per = new int;
+	int *cont = new int;
+	*cont = 1;
+
+	double *cont_ninios = new double;
+	*cont_ninios = 0;
+
+	double *cont_jov = new double;
+	*cont_jov = 0;
+
+	double *cont_adul = new double;
+	*cont_adul = 0;
+
+	double *cont_adulMa = new double;
+	*cont_adulMa = 0;
+
+	do
+	{
+		cout << "Ingrese el numero de personas: "; cin >> *num_per;
+	} while (*num_per < 0 && *num_per > 50);
+	
+	while (*cont <= *num_per)
+	{
+		do
+		{
+			cout << "Edad de la persona " << *cont << ": "; cin >> *edad;
+
+		} while (*edad < 0);
+
+		if (*edad <= 12) (*cont_ninios)++;
+		if (*edad > 12 && *edad <= 29) (*cont_jov)++;
+		if (*edad > 29 && *edad <= 59) (*cont_adul)++;
+		if (*edad > 59) (*cont_adulMa)++;
+
+		(*cont)++;
+	}
+
+	cout.precision(4);
+	cout << "El porcentaje de ninios es: " << (*cont_ninios / *num_per) * 100 << endl;
+	cout << "El porcentaje de jovenes es: " << (*cont_jov / *num_per) * 100 << endl;
+	cout << "El porcentaje de adultos es: " << (*cont_adul / *num_per) * 100 << endl;
+	cout << "El porcentaje de adultos mayores es: " << (*cont_adulMa / *num_per) * 100;
+
+	_getch();
+}
+

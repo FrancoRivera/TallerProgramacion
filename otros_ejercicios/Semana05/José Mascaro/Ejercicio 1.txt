@@ -1,0 +1,47 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	char *marca = new char;
+	char *sist_enfria = new char;
+
+	float *precio = new float;
+
+	do
+	{
+		cout << "Ingrese la marca (M o L o C): "; cin >> *marca;
+		*marca = toupper(*marca);
+	} while (*marca != 'M' && *marca != 'L' && *marca != 'C');
+
+	do
+	{
+		cout << "Ingrese sistema de enfriamiento (F o N): "; cin >> *sist_enfria;
+		*sist_enfria = toupper(*sist_enfria);
+	} while (*sist_enfria != 'F' && *sist_enfria != 'N');
+
+	if (*marca == 'M')
+	{
+		if (*sist_enfria == 'F') *precio = 895.9;
+		else *precio = 1250;
+	}
+
+	if (*marca == 'L')
+	{
+		if (*sist_enfria == 'F') *precio = 975;
+		else *precio = 1650;
+	}
+
+	if (*marca == 'C')
+	{
+		if (*sist_enfria == 'F') *precio = 937.7;
+		else *precio = 1379;
+	}
+
+	cout << endl << endl;
+	cout << "Monto a pagar: " << *precio;
+
+	_getch();
+}

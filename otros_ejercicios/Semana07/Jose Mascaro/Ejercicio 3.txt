@@ -1,0 +1,55 @@
+#include "iostream"
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+	int *N = new int;
+	int *cont = new int;
+	*cont = 1;
+
+	do
+	{
+		cout << "Ingrese el valor de N: "; cin >> *N;
+	} while (*N < 4 || *N > 15);
+
+	for (int i = 1; i <= *N; i++)
+	{
+		//primera fase
+		for (int j = i; j <= *N; j++)
+		{
+			if (j == *N)
+			{
+				if (i % 2 == 0)cout << "|";
+				else cout << "-";
+			}
+			else
+			{
+				cout << " ";
+			}
+		}
+
+		//segunda fase
+		if (i > 1)
+		{
+			for (int k = 1; k <= *cont; k++)
+			{
+				cout << "*";
+			}
+			*cont += 2;
+		}
+
+		//Tercera fase
+		if (i > 1)
+		{
+			if (i % 2 == 0)cout << "|";
+			else cout << "-";
+		}
+
+		cout << endl;
+	}
+	
+	
+	_getch();
+}
