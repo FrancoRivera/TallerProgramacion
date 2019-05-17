@@ -1,7 +1,5 @@
-# Taller Programacion I - C++
-
-
 ## Semana 07
+
 
 **Fecha**: 03-Mayo
 
