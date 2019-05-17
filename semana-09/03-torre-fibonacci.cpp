@@ -36,3 +36,45 @@ int main(){
   cout << fib_for(n);
   return 0;
 }
+
+// la otra forma
+
+#include "stdafx.h";
+#include <conio.h>
+#include <iostream>
+
+using namespace std;
+
+int fibonacci(int n) {
+	int n_anterior_anterior = 1;
+	int n_anterior = 1;
+	int fibonacci = 0;
+		for (int i = 0; i < n; i++) {
+			fibonacci = n_anterior_anterior + n_anterior;
+			n_anterior_anterior = n_anterior;
+			n_anterior = fibonacci;
+		}
+
+	return n_anterior_anterior;
+}
+
+int main() {
+	int numero = 7;
+	
+	for (int fila = 1; fila <= numero; fila++)
+	{
+		for (int columna = 0; columna < numero - fila ; columna++)
+		{
+			cout << "\t";
+		}
+		for (int columna = 0; columna < fila; columna++)
+		{
+			cout << fibonacci(numero-fila) << "\t";
+		}
+		cout << endl;
+	}
+
+
+	_getch();
+	return 0;
+}
