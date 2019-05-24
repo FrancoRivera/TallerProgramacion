@@ -22,10 +22,10 @@ void Hallar_promedio_y_cantidad(unsigned long long int numero){
     int ult_digito = numero % 10;
     // comprobar si el digito es primo
     if (ult_digito == 2 || ult_digito == 3||
-    	ult_digito == 5 || ult_digito == 7) {
-    		primos++;
-    		suma += ult_digito;
-    		}
+	ult_digito == 5 || ult_digito == 7) {
+      primos++;
+      suma += ult_digito;
+    }
     //quitar el ultimo digito y dividir por 10
     numero /= 10;
   }
@@ -35,7 +35,7 @@ void Hallar_promedio_y_cantidad(unsigned long long int numero){
 
 // Main
 int main() {
-	// your code goes here
-	Hallar_promedio_y_cantidad(123456789123456789);
-	return 0;
+  // your code goes here
+  Hallar_promedio_y_cantidad(123456789123456789);
+  return 0;
 }
